@@ -34,7 +34,6 @@ public class GameHelper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TurnObjectMethod();
         StartCoroutine(ChangeColourText(textTurn));
         Win();
         Quiit();
@@ -57,25 +56,14 @@ public class GameHelper : MonoBehaviour
         TurnObjectStartVisual();
     }
 
-    void TurnObjectMethod()
-    {
-        if(playerTurn == 1)
-        {
-          //  turnObject.GetComponent<SpriteRenderer>().sprite = circle.GetComponent<SpriteRenderer>().sprite;
-        }
-        else if(playerTurn == 2)
-        {
-         //   turnObject.GetComponent<SpriteRenderer>().sprite = square.GetComponent<SpriteRenderer>().sprite;
-        }
-
-        Debug.Log("!!!" + playerTurn);
-    }
+    
 
     void TurnObjectStartVisual()
     {
         turnCircle = Instantiate(circle, new Vector3(-7, -0.5f, -1.5f), Quaternion.identity);
         turnSquare = Instantiate(square, new Vector3(-7, -0.5f, -1.5f), Quaternion.identity);
         turnSquare.SetActive(false);
+        turnCircle.SetActive(true);
     }
 
     IEnumerator ChangeColourText(GameObject text)
@@ -185,5 +173,6 @@ public class GameHelper : MonoBehaviour
             Application.Quit();
         }
     }
+
 }
 
