@@ -10,13 +10,12 @@ public class GameHelper : MonoBehaviour
     public List<GameObject> ListField = new List<GameObject>();
     float startX = -2.5f;
     float startY = 2.5f;
-    public static int playerTurn = 1;
+    public static int playerTurn;
     public  GameObject circle;
     public  GameObject square;
     public static GameObject turnSquare;
     public static GameObject turnCircle;
     private bool isRunning = false;
-    bool color = false;
     public GameObject textTurn;
     public GameObject winText;
     private bool restartClick = false;
@@ -28,6 +27,7 @@ public class GameHelper : MonoBehaviour
 
     void Start()
     {
+        playerTurn = 1;
         CreateFields();
     }
 
@@ -64,6 +64,8 @@ public class GameHelper : MonoBehaviour
         turnSquare = Instantiate(square, new Vector3(-7, -0.5f, -1.5f), Quaternion.identity);
         turnSquare.SetActive(false);
         turnCircle.SetActive(true);
+        Debug.Log("Circle " + turnCircle.activeSelf);
+        Debug.Log("Square " + turnSquare.activeSelf);
     }
 
     IEnumerator ChangeColourText(GameObject text)
@@ -145,7 +147,6 @@ public class GameHelper : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
-        Debug.Log("Wim");
     }
 
     void Pass()

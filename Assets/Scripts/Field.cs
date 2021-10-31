@@ -17,7 +17,7 @@ public class Field : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+   
     }
 
     void OnMouseEnter()
@@ -43,8 +43,8 @@ public class Field : MonoBehaviour
 
     void TurnObjectVisual()
     {
-        GameHelper.turnCircle.SetActive(!GameHelper.turnCircle.active);
-        GameHelper.turnSquare.SetActive(!GameHelper.turnSquare.active);
+        GameHelper.turnCircle.SetActive(!GameHelper.turnCircle.activeSelf);
+        GameHelper.turnSquare.SetActive(!GameHelper.turnSquare.activeSelf);
     }
     void SetFigureOnField()
     {
@@ -56,7 +56,6 @@ public class Field : MonoBehaviour
                 TurnObjectVisual();
                 playerPoint = 1;
                 GameHelper.playerTurn = 2;
-                Debug.Log(1);
             }
             else if (GameHelper.playerTurn == 2)
             {
@@ -64,7 +63,6 @@ public class Field : MonoBehaviour
                 TurnObjectVisual();
                 playerPoint = 2;
                 GameHelper.playerTurn = 1;
-                Debug.Log(2);
             }
             free = true;
         }
